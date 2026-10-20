@@ -17,11 +17,21 @@ const featuredProjects = [8, 1, 4, 6, 2].map((id) => projects.find((project) => 
 const dashboardFrameNames = [
     'overview', 'hero-about', 'about', 'about-expertise', 'expertise', 'expertise-process', 'process', 'process-work', 'work', 'work-contact', 'contact',
 ];
+const extraDashboardFrames = {
+    0: 'extra-00-overview-about.png',
+    2: 'extra-02-about-expertise.png',
+    4: 'extra-04-expertise-process.png',
+    6: 'extra-06-process-work.png',
+    8: 'extra-08-work-contact.png',
+};
+const scrollFramePath = (name) => `/images/generated/scroll-frames/${name}`;
 const dashboardFrames = dashboardFrameNames.flatMap((name, index) => {
-    const frame = `/images/generated/scroll-frames/${String(index).padStart(2, '0')}-${name}.png`;
-    return index < dashboardFrameNames.length - 1
-        ? [frame, `/images/generated/scroll-frames/between-${String(index).padStart(2, '0')}-${String(index + 1).padStart(2, '0')}.png`]
-        : [frame];
+    const frame = scrollFramePath(`${String(index).padStart(2, '0')}-${name}.png`);
+    if (index >= dashboardFrameNames.length - 1) return [frame];
+    const transitionFrames = [frame];
+    if (extraDashboardFrames[index]) transitionFrames.push(scrollFramePath(extraDashboardFrames[index]));
+    transitionFrames.push(scrollFramePath(`between-${String(index).padStart(2, '0')}-${String(index + 1).padStart(2, '0')}.png`));
+    return transitionFrames;
 });
 const dashboardFocus = [
     [50, 50, 34, 30],
@@ -42,6 +52,57 @@ function SectionEyebrow({ children, index }) {
     return <div className="journey-eyebrow"><span>{index}</span>{children}</div>;
 }
 
+const hobbies = [
+    { key: 'guitar', label: 'Guitar', value: 50, Icon: Guitar, color: '#ff8991' },
+    { key: 'gaming', label: 'Gaming', value: 30, Icon: Gamepad2, color: '#aa91ef' },
+    { key: 'travel', label: 'Travel', value: 20, Icon: Plane, color: '#70c7bd' },
+];
+const hobbyCircumference = 2 * Math.PI * 42;
+
+function HobbyDonut({ activeHobby, onSelect }) {
+    let offset = 0;
+    const active = hobbies.find((hobby) => hobby.key === activeHobby);
+    return (
+        <div className="hobby-donut-layout">
+            <div className="hobby-chart" role="img" aria-label="Hobby split: guitar 50 percent, gaming 30 percent, travel 20 percent">
+                <svg viewBox="0 0 112 112" aria-hidden="true">
+                    <circle className="hobby-chart-track" cx="56" cy="56" r="42" />
+                    <g transform="rotate(-90 56 56)">
+                        {hobbies.map((hobby) => {
+                            const length = hobbyCircumference * hobby.value / 100;
+                            const segmentOffset = offset;
+                            offset += length;
+                            return <circle key={hobby.key} className={'hobby-chart-segment ' + (activeHobby === hobby.key ? 'is-active' : '')} cx="56" cy="56" r="42" fill="none" stroke={hobby.color} strokeWidth="10" strokeDasharray={length + ' ' + (hobbyCircumference - length)} strokeDashoffset={-segmentOffset} />;
+                        })}
+                    </g>
+                </svg>
+                <div className="hobby-chart-center"><strong>{active ? active.value + '%' : 'MY'}</strong><span>{active ? active.label : 'HOBBIES'}</span></div>
+            </div>
+            <div className="hobby-legend" aria-label="Explore hobby time split">
+                {hobbies.map(({ key, label, value, Icon, color }) => (
+                    <button type="button" key={key} className={'hobby-legend-item ' + (activeHobby === key ? 'is-active' : '')} onMouseEnter={() => onSelect(key)} onFocus={() => onSelect(key)} onClick={() => onSelect(activeHobby === key ? null : key)} aria-pressed={activeHobby === key}>
+                        <Icon size={16} style={{ color }} /><span>{label}</span><b>{value}%</b>
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+const tools = [
+    { key: 'figma', name: 'Figma', mark: 'figma' },
+    { key: 'illustrator', name: 'Illustrator', mark: 'Ai' },
+    { key: 'photoshop', name: 'Photoshop', mark: 'Ps' },
+    { key: 'databricks', name: 'Databricks', mark: 'DB' },
+    { key: 'power-bi', name: 'Power BI', mark: 'powerbi' },
+];
+
+function ToolMark({ tool }) {
+    if (tool.mark === 'figma') return <svg viewBox="0 0 24 36" aria-hidden="true"><path fill="#f24e1e" d="M6 0h6v12H6a6 6 0 0 1 0-12Z"/><path fill="#ff7262" d="M12 0h6a6 6 0 0 1 0 12h-6Z"/><path fill="#a259ff" d="M6 12h6v12H6a6 6 0 0 1 0-12Z"/><circle fill="#1abcfe" cx="15" cy="18" r="6"/><path fill="#0acf83" d="M6 24h6v6a6 6 0 1 1-6-6Z"/></svg>;
+    if (tool.mark === 'powerbi') return <svg viewBox="0 0 32 28" aria-hidden="true"><path d="M3 18h5v8H3zm7-7h5v15h-5zm7-6h5v21h-5zm7 3h5v18h-5z" fill="currentColor"/><path d="M2 13 15 2l14 5" fill="none" stroke="#f3c64e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+    return <span className={'tool-lettermark tool-lettermark-' + tool.key} aria-hidden="true">{tool.mark}</span>;
+}
+
 export function ScrollPortfolio() {
     const pageRef = useRef(null);
     const frameARef = useRef(null);
@@ -49,6 +110,7 @@ export function ScrollPortfolio() {
     const heroVideoRef = useRef(null);
     const { reducedMotion } = useSettings();
     const [activeSkill, setActiveSkill] = useState(null);
+    const [activeHobby, setActiveHobby] = useState(null);
     const visibleProjects = activeSkill
         ? projects.filter((project) => activeSkill.projectIds.includes(project.id))
         : featuredProjects;
@@ -103,8 +165,8 @@ export function ScrollPortfolio() {
             const position = Math.min(maxSegment, Math.max(0, cameraPosition));
             const segment = Math.min(maxSegment, Math.floor(position));
             const frameProgress = segment === maxSegment ? 0 : position - segment;
-            const framePosition = Math.min(dashboardFrames.length - 1, position * 4);
-            setFrame(reducedMotion ? segment * 4 : Math.round(framePosition));
+            const framePosition = Math.min(dashboardFrames.length - 1, position * (dashboardFrames.length - 1) / maxSegment);
+            setFrame(reducedMotion ? Math.round(segment * (dashboardFrames.length - 1) / maxSegment) : Math.round(framePosition));
 
             // Decode just the adjacent frames ahead of the camera to avoid a hitch on image swaps.
             const frameIndex = Math.round(framePosition);
@@ -203,12 +265,8 @@ export function ScrollPortfolio() {
                             <div><strong>20+</strong><span>projects completed</span></div>
                             <div><strong>15+</strong><span>happy clients</span></div>
                         </div>
-                        <div className="hobby-heading"><span>OFF-SCREEN, IN MY ELEMENT</span><span>HOW I SPEND MY FREE TIME</span></div>
-                        <div className="hobby-bars">
-                            <div className="hobby-row"><Guitar size={17} /><span>Guitar</span><div className="hobby-track"><i style={{ width: '50%' }} /></div><b>50%</b></div>
-                            <div className="hobby-row"><Gamepad2 size={17} /><span>Gaming</span><div className="hobby-track"><i style={{ width: '30%' }} /></div><b>30%</b></div>
-                            <div className="hobby-row"><Plane size={17} /><span>Travel</span><div className="hobby-track"><i style={{ width: '20%' }} /></div><b>20%</b></div>
-                        </div>
+                        <div className="hobby-heading"><span>OUTSIDE OF WORK</span><span>MY HOBBIES · 50 / 30 / 20</span></div>
+                        <HobbyDonut activeHobby={activeHobby} onSelect={setActiveHobby} />
                     </div>
                 </section>
 
@@ -230,6 +288,10 @@ export function ScrollPortfolio() {
                             })}
                         </div>
                         <div className="skill-note">AI experience grounded in practical agent workflows — including a Claude-built weekly business pulse.</div>
+                        <div className="toolkit-heading"><span>TOOLS I WORK WITH</span><span>DESIGN · DATA · AI</span></div>
+                        <div className="toolkit-grid">
+                            {tools.map((tool) => <div className={'toolkit-item toolkit-' + tool.key} key={tool.key}><span className="toolkit-mark"><ToolMark tool={tool} /></span><span>{tool.name}</span></div>)}
+                        </div>
                     </div>
                 </section>
 

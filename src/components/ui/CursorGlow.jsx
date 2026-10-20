@@ -3,7 +3,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useSettings } from '../../context/SettingsContext';
 
 export function CursorGlow() {
-    const { reducedMotion, theme } = useSettings();
+    const { reducedMotion } = useSettings();
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
@@ -32,11 +32,7 @@ export function CursorGlow() {
                 translateX: '-50%',
                 translateY: '-50%',
             }}
-            className={`fixed top-0 left-0 w-[300px] h-[300px] rounded-full blur-3xl pointer-events-none z-0 
-        ${theme === 'dark'
-                    ? 'bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-pink-500/50 mix-blend-screen opacity-100'
-                    : 'bg-gradient-to-r from-blue-400/60 via-purple-400/60 to-pink-400/60 mix-blend-multiply opacity-80'
-                }`}
+            className="fixed top-0 left-0 w-[300px] h-[300px] rounded-full blur-3xl pointer-events-none z-0 bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-pink-500/50 mix-blend-screen opacity-100"
             animate={{
                 scale: [1, 1.2, 1],
                 rotate: [0, 90, 180, 270, 360],

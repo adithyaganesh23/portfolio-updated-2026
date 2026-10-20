@@ -1,62 +1,40 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const SettingsContext = createContext();
+const writePreference = (key, value) => {
+    try { window.localStorage.setItem('portfolio-' + key, JSON.stringify(value)); } catch { /* Storage may be unavailable in private browsing. */ }
+};
+const readPreference = (key, fallback) => {
+    try {
+        const saved = window.localStorage.getItem('portfolio-' + key);
+        return saved === null ? fallback : JSON.parse(saved);
+    } catch {
+        return fallback;
+    }
+};
 
 export function SettingsProvider({ children }) {
-    const [theme, setTheme] = useState('dark');
-    const [fontSize, setFontSize] = useState('normal');
-    const [reducedMotion, setReducedMotion] = useState(false);
-    const [highContrast, setHighContrast] = useState(false);
+    const [fontSize, setFontSize] = useState(() => readPreference('font-size', 'normal'));
+    const [reducedMotion, setReducedMotion] = useState(() => readPreference('reduced-motion', false));
+    const [highContrast, setHighContrast] = useState(() => readPreference('high-contrast', false));
 
+    useEffect(() => { window.document.documentElement.classList.add('dark'); }, []);
     useEffect(() => {
-        // Apply Theme
-        const root = window.document.documentElement;
-        if (theme === 'dark') {
-            root.classList.add('dark');
-        } else {
-            root.classList.remove('dark');
-        }
-    }, [theme]);
-
-    useEffect(() => {
-        // Apply Font Size
         const root = window.document.documentElement;
         root.classList.remove('text-normal', 'text-large', 'text-larger');
-        root.classList.add(`text-${fontSize}`);
+        root.classList.add('text-' + fontSize);
+        writePreference('font-size', fontSize);
     }, [fontSize]);
-
     useEffect(() => {
-        // Apply Reduced Motion
-        const root = window.document.documentElement;
-        if (reducedMotion) {
-            root.classList.add('reduce-motion');
-        } else {
-            root.classList.remove('reduce-motion');
-        }
+        window.document.documentElement.classList.toggle('reduce-motion', reducedMotion);
+        writePreference('reduced-motion', reducedMotion);
     }, [reducedMotion]);
-
     useEffect(() => {
-        // Apply High Contrast
-        const root = window.document.documentElement;
-        if (highContrast) {
-            root.classList.add('high-contrast');
-        } else {
-            root.classList.remove('high-contrast');
-        }
+        window.document.documentElement.classList.toggle('high-contrast', highContrast);
+        writePreference('high-contrast', highContrast);
     }, [highContrast]);
 
-    return (
-        <SettingsContext.Provider
-            value={{
-                theme, setTheme,
-                fontSize, setFontSize,
-                reducedMotion, setReducedMotion,
-                highContrast, setHighContrast
-            }}
-        >
-            {children}
-        </SettingsContext.Provider>
-    );
+    return <SettingsContext.Provider value={{ fontSize, setFontSize, reducedMotion, setReducedMotion, highContrast, setHighContrast }}>{children}</SettingsContext.Provider>;
 }
 
 export const useSettings = () => useContext(SettingsContext);

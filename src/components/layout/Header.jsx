@@ -47,23 +47,23 @@ export function Header() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-6'
+            className={`fixed top-0 left-0 right-0 z-50 text-[#f4edf3] transition-all duration-300 ${isScrolled ? 'bg-[#101116]/85 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-6'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                 <Link href="/" className="brand-mark z-50 relative cursor-pointer" aria-label="Adithya Ganesh home">
-                    <span className="brand-dot" aria-hidden="true" />
+                    <span className="brand-logo-symbol" aria-hidden="true"><img src="/images/adithya-monogram.png" alt="" /></span>
                     <span className="brand-wordmark"><strong>Adithya Ganesh</strong></span>
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-8 bg-white/50 dark:bg-zinc-800/50 backdrop-blur-sm px-6 py-2 rounded-full border border-white/20 dark:border-white/10">
+                <nav className="hidden md:flex items-center gap-8 bg-[#17171f]/70 text-[#e8e4ed] backdrop-blur-sm px-6 py-2 rounded-full border border-white/10">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={`#${link.id}`}
                             onClick={(e) => handleNavClick(e, link.id)}
-                            className="text-sm font-medium text-secondary hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors hover:bg-gray-100/50 dark:hover:bg-zinc-700/50 px-3 py-1 rounded-full cursor-pointer"
+                            className="text-sm font-medium text-[#d3cfdb] hover:text-white transition-colors hover:bg-white/10 px-3 py-1 rounded-full cursor-pointer"
                         >
                             {link.name}
                         </a>
@@ -80,7 +80,7 @@ export function Header() {
                     </Button>
                     <button
                         onClick={() => setIsSettingsOpen(!isSettingsOpen)}
-                        className="p-2 text-primary dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-full transition-colors relative"
+                        className="p-2 text-white hover:bg-white/10 rounded-full transition-colors relative"
                     >
                         <Settings size={20} />
                     </button>
@@ -90,7 +90,7 @@ export function Header() {
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className="md:hidden z-50 p-2"
+                    className="md:hidden z-50 p-2 text-white hover:bg-white/10 rounded-full" aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={isMobileMenuOpen}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -98,12 +98,12 @@ export function Header() {
 
                 {/* Mobile Menu Overlay */}
                 {isMobileMenuOpen && (
-                    <div className="fixed inset-0 bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 md:hidden">
+                    <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 mobile-navigation-overlay text-[#f4edf3] backdrop-blur-xl md:hidden">
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
                                 href={`#${link.id}`}
-                                className="text-3xl font-serif font-medium"
+                                className="text-3xl font-serif font-medium text-[#f4edf3] hover:text-[#ffb1ba] transition-colors"
                                 onClick={(e) => {
                                     handleNavClick(e, link.id);
                                     setIsMobileMenuOpen(false);
