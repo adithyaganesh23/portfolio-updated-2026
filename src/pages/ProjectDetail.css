@@ -1,0 +1,18 @@
+.project-visual-detail { min-height:440px; }
+.project-workflow { margin:0 0 5rem; padding:clamp(22px,4vw,44px); border:1px solid rgba(124,109,160,.22); border-radius:24px; background:linear-gradient(145deg,rgba(28,26,39,.96),rgba(17,18,27,.98)); color:#f2eff6; box-shadow:0 25px 75px rgba(0,0,0,.24); }
+.workflow-heading { max-width:690px; margin-bottom:30px; }
+.workflow-heading>span { color:#f093a1; font-size:10px; font-weight:600; letter-spacing:.16em; }
+.workflow-heading h2 { margin:10px 0 12px; font-size:clamp(1.8rem,4vw,3rem); line-height:1.05; letter-spacing:-.05em; color:#f4f0f7; }
+.workflow-heading p { color:#b5b1c1; font-size:14px; max-width:590px; line-height:1.7; }
+.workflow-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid rgba(235,225,245,.15); border-left:1px solid rgba(235,225,245,.15); }
+.workflow-step { min-height:150px; padding:17px 16px; border-right:1px solid rgba(235,225,245,.15); border-bottom:1px solid rgba(235,225,245,.15); position:relative; }
+.workflow-step>span { display:inline-grid; place-items:center; width:28px; height:28px; border:1px solid rgba(245,145,160,.42); border-radius:50%; color:#ffadb8; font-size:9px; font-variant-numeric:tabular-nums; }
+.workflow-step h3 { margin:15px 0 5px; color:#f0ecf5; font-size:14px; font-weight:500; }
+.workflow-step p { margin:0; color:#a9a6b5; font-size:11px; line-height:1.55; }
+.workflow-context { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
+.workflow-context>div { display:flex; align-items:flex-start; gap:12px; padding:14px; border:1px solid rgba(179,151,219,.23); border-radius:12px; background:rgba(151,126,193,.07); }
+.workflow-context-icon { flex:0 0 25px; width:25px; height:25px; display:grid; place-items:center; border-radius:50%; color:#d2b1ed; background:rgba(196,155,230,.13); font-size:14px; }
+.workflow-context p { margin:0; color:#b8b3c2; font-size:11px; line-height:1.6; }.workflow-context strong { color:#f0eaf4; font-weight:500; }
+.project-coming-soon { margin:0 0 5rem; padding:30px; border:1px solid rgba(124,109,160,.22); border-radius:18px; background:linear-gradient(145deg,rgba(28,26,39,.96),rgba(17,18,27,.98)); color:#f2eff6; }
+.project-coming-soon span { color:#f093a1; font-size:10px; font-weight:600; letter-spacing:.16em; }.project-coming-soon p { color:#b5b1c1; margin:10px 0 0; }
+@media(max-width:760px){.project-visual-detail{min-height:290px}.workflow-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.workflow-step{min-height:132px;padding:13px}.workflow-context{grid-template-columns:1fr}}
