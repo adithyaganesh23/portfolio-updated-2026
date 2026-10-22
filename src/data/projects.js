@@ -152,5 +152,18 @@ export const projects = [
             { title: "Deliver", detail: "Assets and a final insights deck are generated." }
         ],
         gallery: []
+    },
+    {
+        id: 9,
+        title: "PrepBuddy",
+        category: "Meal Planning & Household Product",
+        image: "/images/prepbuddy/week-planner.svg",
+        cols: "md:col-span-1",
+        tags: ["Meal Planning", "Responsive Product", "Household Tools"],
+        description: "A connected household meal-planning product that carries the weekly plan through pantry checks, grocery shopping, and cooking.",
+        challenge: "Choosing meals, remembering what is already in the kitchen, working out what to buy, and keeping a household in sync are connected tasks that often happen in different places. This can leave plans that ignore the pantry, grocery lists that do not reflect the week, and recipes that are hard to reuse.",
+        solution: "PrepBuddy brings the routine together: meals and servings shape the grocery list, pantry quantities help show what is already covered, and cooking status, notes, and photos build a useful history for next time. A bulk import flow lets people paste a meal plan from an AI tool, review the parsed meals, and add them to the week.",
+        caseStudy: "prepbuddy",
+        gallery: []
     }
 ];

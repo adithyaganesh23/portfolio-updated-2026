@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125" role="img" aria-labelledby="title desc">
+  <title id="title">PrepBuddy pantry health</title>
+  <desc id="desc">A representative pantry screen with item quantities, expiry labels, and stock health indicators.</desc>
+  <rect width="900" height="1125" rx="28" fill="#F0F2F5"/>
+  <rect width="900" height="120" rx="28" fill="#fff"/>
+  <text x="54" y="62" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#202521">Pantry</text>
+  <text x="54" y="91" font-family="Arial,sans-serif" font-size="14" fill="#888">Keep an eye on what you have.</text>
+  <rect x="700" y="42" width="148" height="45" rx="12" fill="#2D7D5E"/>
+  <text x="727" y="70" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">＋ Add item</text>
+  <rect x="40" y="145" width="820" height="110" rx="18" fill="#fff"/>
+  <text x="66" y="180" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#767e78">PANTRY HEALTH</text>
+  <text x="66" y="221" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#1f2a23">2/5 healthy</text>
+  <rect x="632" y="176" width="194" height="48" rx="14" fill="#EAF4EF"/>
+  <circle cx="658" cy="200" r="6" fill="#2D7D5E"/><text x="675" y="205" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#1A5C43">40% overall</text>
+  <text x="48" y="303" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#78817a">ALL ITEMS</text>
+  <rect x="40" y="326" width="820" height="118" rx="17" fill="#fff"/>
+  <rect x="62" y="350" width="68" height="68" rx="16" fill="#FEFAEC"/><text x="80" y="396" font-size="30">🥚</text>
+  <text x="153" y="373" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#202521">Eggs</text>
+  <text x="153" y="399" font-family="Arial,sans-serif" font-size="12" fill="#888">6 pcs</text>
+  <rect x="153" y="416" width="215" height="5" rx="3" fill="#e7e9e7"/><rect x="153" y="416" width="180" height="5" rx="3" fill="#2D7D5E"/>
+  <rect x="681" y="357" width="145" height="30" rx="15" fill="#EAF4EF"/><text x="699" y="377" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#1A5C43">●  Stocked</text>
+  <text x="700" y="411" font-family="Arial,sans-serif" font-size="11" fill="#7a827c">Expires in 12 days</text>
+  <rect x="40" y="459" width="820" height="118" rx="17" fill="#fff"/>
+  <rect x="62" y="483" width="68" height="68" rx="16" fill="#FDF2EC"/><text x="80" y="529" font-size="30">🥑</text>
+  <text x="153" y="506" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#202521">Avocado</text>
+  <text x="153" y="532" font-family="Arial,sans-serif" font-size="12" fill="#888">1 pcs</text>
+  <rect x="153" y="549" width="215" height="5" rx="3" fill="#e7e9e7"/><rect x="153" y="549" width="94" height="5" rx="3" fill="#E8834A"/>
+  <rect x="681" y="490" width="145" height="30" rx="15" fill="#FDF2EC"/><text x="699" y="510" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#8B4A1A">●  Low</text>
+  <text x="700" y="544" font-family="Arial,sans-serif" font-size="11" fill="#7a827c">Expires in 2 days</text>
+  <rect x="40" y="592" width="820" height="118" rx="17" fill="#fff"/>
+  <rect x="62" y="616" width="68" height="68" rx="16" fill="#EAF4EF"/><text x="80" y="662" font-size="30">🫒</text>
+  <text x="153" y="639" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#202521">Olive oil</text>
+  <text x="153" y="665" font-family="Arial,sans-serif" font-size="12" fill="#888">250 ml · Oils &amp; sauces</text>
+  <rect x="153" y="682" width="215" height="5" rx="3" fill="#e7e9e7"/><rect x="153" y="682" width="143" height="5" rx="3" fill="#2D7D5E"/>
+  <rect x="681" y="623" width="145" height="30" rx="15" fill="#FDF2EC"/><text x="699" y="643" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#8B4A1A">●  Low</text>
+  <text x="700" y="677" font-family="Arial,sans-serif" font-size="11" fill="#7a827c">Alert below 300 ml</text>
+  <rect x="40" y="725" width="820" height="118" rx="17" fill="#fff"/>
+  <rect x="62" y="749" width="68" height="68" rx="16" fill="#FEFAEC"/><text x="80" y="795" font-size="30">🍝</text>
+  <text x="153" y="772" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#202521">Spaghetti</text>
+  <text x="153" y="798" font-family="Arial,sans-serif" font-size="12" fill="#888">400 g</text>
+  <rect x="153" y="815" width="215" height="5" rx="3" fill="#e7e9e7"/><rect x="153" y="815" width="202" height="5" rx="3" fill="#2D7D5E"/>
+  <rect x="681" y="756" width="145" height="30" rx="15" fill="#EAF4EF"/><text x="699" y="776" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#1A5C43">●  Stocked</text>
+  <text x="700" y="810" font-family="Arial,sans-serif" font-size="11" fill="#7a827c">No alerts set</text>
+  <rect x="40" y="859" width="820" height="118" rx="17" fill="#fff"/>
+  <rect x="62" y="883" width="68" height="68" rx="16" fill="#FDF2EC"/><text x="80" y="929" font-size="30">🧄</text>
+  <text x="153" y="906" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#202521">Garlic</text>
+  <text x="153" y="932" font-family="Arial,sans-serif" font-size="12" fill="#888">1 bulb</text>
+  <rect x="153" y="949" width="215" height="5" rx="3" fill="#e7e9e7"/><rect x="153" y="949" width="48" height="5" rx="3" fill="#E8834A"/>
+  <rect x="681" y="890" width="145" height="30" rx="15" fill="#FDF2EC"/><text x="699" y="910" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#8B4A1A">●  Running low</text>
+  <text x="700" y="944" font-family="Arial,sans-serif" font-size="11" fill="#7a827c">Below your threshold</text>
+  <text x="52" y="1036" font-family="Arial,sans-serif" font-size="12" fill="#7a827c">Set quantities, low-stock thresholds, and expiry dates to keep the list useful.</text>
+</svg>

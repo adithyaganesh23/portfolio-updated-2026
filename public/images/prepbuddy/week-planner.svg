@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">PrepBuddy weekly planner</title>
+  <desc id="desc">A representative desktop meal planning screen showing navigation, the current week, planned meals, servings, and cook controls.</desc>
+  <rect width="1440" height="900" rx="22" fill="#F0F2F5"/>
+  <rect width="246" height="900" rx="22" fill="#fff"/>
+  <rect x="245" width="1" height="900" fill="#e8e9eb"/>
+  <text x="34" y="58" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#2D7D5E">✳ PrepBuddy</text>
+  <rect x="24" y="86" width="198" height="42" rx="11" fill="#f8f9fa" stroke="#e8e9eb"/>
+  <circle cx="45" cy="106" r="7" fill="none" stroke="#8a919e" stroke-width="2"/><path d="m50 111 6 6" stroke="#8a919e" stroke-width="2" stroke-linecap="round"/>
+  <text x="67" y="111" font-family="Arial,sans-serif" font-size="13" fill="#8a919e">Search recipes...</text>
+  <rect x="13" y="157" width="220" height="48" rx="12" fill="#EAF4EF"/>
+  <text x="34" y="188" font-family="Arial,sans-serif" font-size="17">📅</text><text x="68" y="187" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#1A5C43">This Week</text>
+  <text x="34" y="245" font-family="Arial,sans-serif" font-size="17">🍽️</text><text x="68" y="244" font-family="Arial,sans-serif" font-size="15" fill="#444">Meals</text>
+  <text x="34" y="297" font-family="Arial,sans-serif" font-size="17">🧺</text><text x="68" y="296" font-family="Arial,sans-serif" font-size="15" fill="#444">Pantry</text>
+  <text x="34" y="349" font-family="Arial,sans-serif" font-size="17">🛒</text><text x="68" y="348" font-family="Arial,sans-serif" font-size="15" fill="#444">Grocery List</text>
+  <text x="34" y="401" font-family="Arial,sans-serif" font-size="17">🌍</text><text x="68" y="400" font-family="Arial,sans-serif" font-size="15" fill="#444">Explore</text>
+  <line x1="0" y1="819" x2="246" y2="819" stroke="#e8e9eb"/>
+  <circle cx="48" cy="858" r="17" fill="#2D7D5E"/><text x="42" y="864" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#fff">A</text>
+  <text x="76" y="855" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#222">Alex Morgan</text><text x="76" y="873" font-family="Arial,sans-serif" font-size="11" fill="#888">Morgan household</text>
+  <text x="292" y="67" font-family="Arial,sans-serif" font-size="13" fill="#79817b">MONDAY, OCTOBER 19 – SUNDAY, OCTOBER 25</text>
+  <text x="292" y="111" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#171b19">This week</text>
+  <text x="292" y="140" font-family="Arial,sans-serif" font-size="14" fill="#858c87">A little planning makes room for a lot of good meals.</text>
+  <rect x="1236" y="81" width="145" height="44" rx="11" fill="#2D7D5E"/>
+  <text x="1261" y="109" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">↥  Import plan</text>
+  <rect x="292" y="174" width="1089" height="80" rx="17" fill="#fff"/>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <text x="354" y="205" font-size="12" fill="#8a919e">MON</text><text x="354" y="232" font-size="20" font-weight="700" fill="#333">19</text>
+    <text x="465" y="205" font-size="12" fill="#8a919e">TUE</text><text x="465" y="232" font-size="20" font-weight="700" fill="#333">20</text>
+    <text x="577" y="205" font-size="12" fill="#8a919e">WED</text><text x="577" y="232" font-size="20" font-weight="700" fill="#333">21</text>
+    <rect x="653" y="186" width="94" height="56" rx="13" fill="#2D7D5E"/><text x="700" y="207" font-size="12" fill="#cde5d8">THU</text><text x="700" y="231" font-size="20" font-weight="700" fill="#fff">22</text>
+    <text x="823" y="205" font-size="12" fill="#8a919e">FRI</text><text x="823" y="232" font-size="20" font-weight="700" fill="#333">23</text>
+    <text x="946" y="205" font-size="12" fill="#8a919e">SAT</text><text x="946" y="232" font-size="20" font-weight="700" fill="#333">24</text>
+    <text x="1069" y="205" font-size="12" fill="#8a919e">SUN</text><text x="1069" y="232" font-size="20" font-weight="700" fill="#333">25</text>
+  </g>
+  <text x="292" y="296" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#303832">Thursday, Oct 22</text>
+  <rect x="292" y="318" width="1089" height="102" rx="16" fill="#fff"/>
+  <rect x="311" y="337" width="63" height="63" rx="15" fill="#FEFAEC"/>
+  <text x="326" y="378" font-size="29">🍳</text>
+  <text x="392" y="360" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#8a919e">BREAKFAST</text>
+  <text x="392" y="385" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#202521">Banana pancakes</text>
+  <rect x="1014" y="347" width="110" height="40" rx="11" fill="#f7f8fa"/>
+  <text x="1033" y="373" font-family="Arial,sans-serif" font-size="15" fill="#555">−</text><text x="1065" y="373" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#333">2</text><text x="1099" y="373" font-family="Arial,sans-serif" font-size="15" fill="#555">+</text>
+  <circle cx="1180" cy="367" r="19" fill="#EAF4EF"/><path d="m1171 367 6 6 12-13" fill="none" stroke="#2D7D5E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1228" y="371" font-family="Arial,sans-serif" font-size="12" fill="#7f8781">Ready in pantry</text>
+  <rect x="292" y="434" width="1089" height="102" rx="16" fill="#fff"/>
+  <rect x="311" y="453" width="63" height="63" rx="15" fill="#FDF2EC"/>
+  <text x="326" y="494" font-size="29">🥗</text>
+  <text x="392" y="476" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#8a919e">LUNCH</text>
+  <text x="392" y="501" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#202521">Greek salad</text>
+  <rect x="1014" y="463" width="110" height="40" rx="11" fill="#f7f8fa"/>
+  <text x="1033" y="489" font-family="Arial,sans-serif" font-size="15" fill="#555">−</text><text x="1065" y="489" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#333">2</text><text x="1099" y="489" font-family="Arial,sans-serif" font-size="15" fill="#555">+</text>
+  <circle cx="1180" cy="483" r="19" fill="#f4f5f5"/><circle cx="1180" cy="483" r="8" fill="none" stroke="#a9afab" stroke-width="2"/>
+  <rect x="292" y="550" width="1089" height="102" rx="16" fill="#fff"/>
+  <rect x="311" y="569" width="63" height="63" rx="15" fill="#FDF2EC"/>
+  <text x="326" y="610" font-size="29">🍝</text>
+  <text x="392" y="592" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#8a919e">DINNER</text>
+  <text x="392" y="617" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#202521">Pasta carbonara</text>
+  <rect x="1014" y="579" width="110" height="40" rx="11" fill="#f7f8fa"/>
+  <text x="1033" y="605" font-family="Arial,sans-serif" font-size="15" fill="#555">−</text><text x="1065" y="605" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#333">4</text><text x="1099" y="605" font-family="Arial,sans-serif" font-size="15" fill="#555">+</text>
+  <circle cx="1180" cy="599" r="19" fill="#f4f5f5"/><circle cx="1180" cy="599" r="8" fill="none" stroke="#a9afab" stroke-width="2"/>
+  <rect x="1221" y="581" width="125" height="36" rx="10" fill="#FEFAEC"/>
+  <text x="1240" y="604" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#9a6d0c">2 INGREDIENTS</text>
+  <rect x="292" y="671" width="1089" height="70" rx="15" fill="none" stroke="#d9dedb" stroke-width="2" stroke-dasharray="8 7"/>
+  <text x="317" y="715" font-family="Arial,sans-serif" font-size="20" fill="#a8afaa">＋</text>
+  <text x="350" y="713" font-family="Arial,sans-serif" font-size="14" fill="#8a919e">Add another meal to Tuesday</text>
+  <rect x="292" y="771" width="1089" height="1" fill="#e3e5e4"/>
+  <text x="292" y="810" font-family="Arial,sans-serif" font-size="12" fill="#7f8781">Add meals from your library · adjust portions · mark meals cooked</text>
+</svg>

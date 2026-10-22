@@ -4,6 +4,7 @@ import { Section } from '../components/ui/Section';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { projects } from '../data/projects';
 import { ProjectVisual } from '../components/ui/ProjectVisual';
+import { PrepBuddyCaseStudy } from './PrepBuddyCaseStudy';
 import './ProjectDetail.css';
 
 export function ProjectDetail() {
@@ -23,6 +24,10 @@ export function ProjectDetail() {
                 <Link href="/" className="ml-4 text-primary hover:underline">Go Home</Link>
             </div>
         );
+    }
+
+    if (project.caseStudy === 'prepbuddy') {
+        return <PrepBuddyCaseStudy project={project} />;
     }
 
     return (

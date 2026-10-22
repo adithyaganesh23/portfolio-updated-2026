@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125" role="img" aria-labelledby="title desc">
+  <title id="title">PrepBuddy grocery list</title>
+  <desc id="desc">A representative grocery screen showing ingredients needed for planned meals after subtracting pantry quantities.</desc>
+  <rect width="900" height="1125" rx="28" fill="#F0F2F5"/>
+  <rect width="900" height="119" rx="28" fill="#fff"/>
+  <text x="52" y="63" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#202521">Grocery list</text>
+  <rect x="695" y="41" width="153" height="46" rx="12" fill="#EAF4EF"/>
+  <text x="719" y="70" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#1A5C43">▣  Copy all</text>
+  <rect x="40" y="145" width="820" height="106" rx="18" fill="#fff"/>
+  <circle cx="93" cy="198" r="29" fill="#EAF4EF"/><text x="77" y="208" font-size="27">🧾</text>
+  <text x="143" y="184" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#78817a">THIS WEEK</text>
+  <text x="143" y="216" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#1f2a23">6 things to pick up</text>
+  <text x="675" y="204" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#2D7D5E">Built from your plan</text>
+  <text x="48" y="300" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#78817a">NEEDED FOR PLANNED MEALS · 4 REMAINING</text>
+  <rect x="40" y="324" width="820" height="98" rx="16" fill="#fff"/>
+  <rect x="63" y="357" width="29" height="29" rx="9" fill="#f0f2f5"/><text x="113" y="367" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#202521">Parmesan</text>
+  <text x="113" y="391" font-family="Arial,sans-serif" font-size="11" fill="#8a919e">Pasta carbonara, Caesar salad</text>
+  <text x="733" y="380" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#4a5550">150 g</text>
+  <rect x="40" y="433" width="820" height="98" rx="16" fill="#fff"/>
+  <rect x="63" y="466" width="29" height="29" rx="9" fill="#f0f2f5"/><text x="113" y="476" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#202521">Romaine lettuce</text>
+  <text x="113" y="500" font-family="Arial,sans-serif" font-size="11" fill="#8a919e">Caesar salad</text>
+  <text x="733" y="489" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#4a5550">1 head</text>
+  <rect x="40" y="542" width="820" height="98" rx="16" fill="#fff"/>
+  <rect x="63" y="575" width="29" height="29" rx="9" fill="#f0f2f5"/><text x="113" y="585" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#202521">Chicken breast</text>
+  <text x="113" y="609" font-family="Arial,sans-serif" font-size="11" fill="#8a919e">Chicken stir fry</text>
+  <text x="733" y="598" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#4a5550">400 g</text>
+  <rect x="40" y="651" width="820" height="98" rx="16" fill="#fff"/>
+  <rect x="63" y="684" width="29" height="29" rx="9" fill="#f0f2f5"/><text x="113" y="694" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#202521">Lemons</text>
+  <text x="113" y="718" font-family="Arial,sans-serif" font-size="11" fill="#8a919e">Caesar salad, grilled salmon</text>
+  <text x="733" y="707" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#4a5550">2 pcs</text>
+  <text x="48" y="800" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#78817a">ALREADY IN YOUR PANTRY</text>
+  <rect x="40" y="818" width="820" height="40" rx="14" fill="#EAF4EF"/>
+  <circle cx="80" cy="838" r="11" fill="#2D7D5E"/><path d="m75 838 4 4 7-8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="113" y="843" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#1A5C43">Olive oil</text>
+  <text x="733" y="843" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#1A5C43">500 ml on hand</text>
+  <rect x="40" y="877" width="820" height="119" rx="18" fill="#EFF4FF"/>
+  <text x="64" y="910" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#4A7FD4">YOUR LIST</text>
+  <text x="64" y="938" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#243142">Household extras</text>
+  <rect x="681" y="899" width="146" height="38" rx="10" fill="#fff"/><text x="706" y="923" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#4A7FD4">＋ Add item</text>
+  <rect x="63" y="953" width="20" height="20" rx="6" fill="#fff" stroke="#96b8ea" stroke-width="2"/>
+  <text x="100" y="969" font-family="Arial,sans-serif" font-size="13" fill="#33465e">Dish soap</text>
+  <text x="790" y="969" font-family="Arial,sans-serif" font-size="12" fill="#4A7FD4">1 bottle</text>
+  <text x="52" y="1053" font-family="Arial,sans-serif" font-size="12" fill="#7a827c">Check off groceries to add them back into your pantry inventory.</text>
+</svg>

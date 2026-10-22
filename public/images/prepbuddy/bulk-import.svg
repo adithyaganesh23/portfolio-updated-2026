@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">PrepBuddy bulk meal-plan import</title>
+  <desc id="desc">A representative meal-plan import sheet with a prompt-copy step, pasted meal plan, and review action.</desc>
+  <rect width="1440" height="900" rx="22" fill="#F0F2F5"/>
+  <rect width="246" height="900" rx="22" fill="#fff"/>
+  <rect x="245" width="1" height="900" fill="#e8e9eb"/>
+  <text x="34" y="58" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#2D7D5E">✳ PrepBuddy</text>
+  <rect x="20" y="154" width="210" height="46" rx="12" fill="#EAF4EF"/>
+  <text x="49" y="183" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#1A5C43">📅  This Week</text>
+  <text x="49" y="243" font-family="Arial,sans-serif" font-size="14" fill="#444">🍽️  Meals</text>
+  <text x="49" y="293" font-family="Arial,sans-serif" font-size="14" fill="#444">🧺  Pantry</text>
+  <text x="49" y="343" font-family="Arial,sans-serif" font-size="14" fill="#444">🛒  Grocery List</text>
+  <rect x="246" width="1194" height="900" fill="#1c201e" opacity=".43"/>
+  <rect x="569" y="61" width="650" height="798" rx="24" fill="#fff"/>
+  <rect x="877" y="76" width="36" height="5" rx="3" fill="#dedede"/>
+  <text x="613" y="134" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#1f2421">Import meal plan</text>
+  <text x="613" y="160" font-family="Arial,sans-serif" font-size="13" fill="#858c87">Use AI to generate, then paste it here</text>
+  <circle cx="1175" cy="133" r="18" fill="#F0F2F5"/><text x="1168" y="139" font-family="Arial,sans-serif" font-size="17" fill="#7d8580">×</text>
+  <rect x="613" y="190" width="562" height="169" rx="16" fill="#EAF4EF"/>
+  <text x="637" y="220" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#2D7D5E">STEP 1 · GET A PLAN FROM AI</text>
+  <text x="637" y="248" font-family="Arial,sans-serif" font-size="13" fill="#1A5C43">Copy the prompt → paste into ChatGPT or another AI →</text>
+  <text x="637" y="268" font-family="Arial,sans-serif" font-size="13" fill="#1A5C43">paste the response below.</text>
+  <rect x="637" y="292" width="514" height="48" rx="11" fill="#fff"/>
+  <text x="805" y="322" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#2D7D5E">▣  Copy AI prompt</text>
+  <text x="613" y="399" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#858c87">STEP 2 · PASTE THE RESPONSE</text>
+  <rect x="613" y="419" width="562" height="271" rx="14" fill="#fff" stroke="#dfe3e0" stroke-width="2"/>
+  <text x="635" y="452" font-family="Courier New,monospace" font-size="13" fill="#313a34">Monday:</text>
+  <text x="650" y="478" font-family="Courier New,monospace" font-size="13" fill="#68746c">Breakfast:</text>
+  <text x="666" y="504" font-family="Courier New,monospace" font-size="13" fill="#313a34">Meal: Banana pancakes</text>
+  <text x="666" y="530" font-family="Courier New,monospace" font-size="13" fill="#68746c">Ingredients:</text>
+  <text x="680" y="556" font-family="Courier New,monospace" font-size="13" fill="#68746c">- 2 pcs bananas</text>
+  <text x="680" y="582" font-family="Courier New,monospace" font-size="13" fill="#68746c">- 2 pcs eggs</text>
+  <text x="680" y="608" font-family="Courier New,monospace" font-size="13" fill="#68746c">- 100 g flour</text>
+  <text x="635" y="657" font-family="Courier New,monospace" font-size="13" fill="#9aa19c">Tuesday:</text>
+  <rect x="613" y="715" width="269" height="50" rx="12" fill="#fff" stroke="#2D7D5E" stroke-width="2"/>
+  <text x="724" y="746" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#2D7D5E">Cancel</text>
+  <rect x="896" y="715" width="279" height="50" rx="12" fill="#2D7D5E"/>
+  <text x="973" y="746" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">Review 21 meals  →</text>
+  <text x="613" y="803" font-family="Arial,sans-serif" font-size="12" fill="#858c87">Review the parsed meal names, ingredients, and schedule before adding.</text>
+</svg>

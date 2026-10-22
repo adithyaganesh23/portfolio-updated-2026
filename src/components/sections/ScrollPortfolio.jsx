@@ -13,7 +13,7 @@ const processSteps = [
     { number: '04', title: 'Refine', detail: 'Validate the details, learn from feedback, and improve.', Icon: RefreshCw, steps: ['Review & testing', 'Iterate & polish'] },
 ];
 
-const featuredProjects = [8, 1, 4, 6, 2].map((id) => projects.find((project) => project.id === id)).filter(Boolean);
+const featuredProjects = [8, 1, 9, 4, 6, 2].map((id) => projects.find((project) => project.id === id)).filter(Boolean);
 const dashboardFrameNames = [
     'overview', 'hero-about', 'about', 'about-expertise', 'expertise', 'expertise-process', 'process', 'process-work', 'work', 'work-contact', 'contact',
 ];
@@ -43,7 +43,7 @@ const dashboardFocus = [
 ];
 const skillGroups = [
     { key: 'ai', title: 'AI & Agent Workflows', subtitle: 'Prompt engineering · Vibe coding · AI prototyping · Agent workflows', Icon: BrainCircuit, projectIds: [1, 2, 3, 8] },
-    { key: 'product', title: 'Digital Product Design', subtitle: 'UX strategy · Interaction design · Prototyping · Design systems', Icon: Sparkles, projectIds: [1, 2, 3, 4] },
+    { key: 'product', title: 'Digital Product Design', subtitle: 'UX strategy · Interaction design · Prototyping · Design systems', Icon: Sparkles, projectIds: [1, 2, 3, 4, 9] },
     { key: 'data', title: 'Data & Visual Storytelling', subtitle: 'Information design · Dashboards · Infographics · Presentation design', Icon: ChartNoAxesCombined, projectIds: [1, 5, 6, 8] },
     { key: 'brand', title: 'Brand & Graphic Design', subtitle: 'Visual identity · Editorial · Campaigns · Typography', Icon: Code2, projectIds: [5, 6, 7] },
 ];

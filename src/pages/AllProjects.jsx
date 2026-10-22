@@ -6,7 +6,7 @@ import { projects } from '../data/projects';
 import { ProjectVisual } from '../components/ui/ProjectVisual';
 
 const orderedProjects = [...projects].sort((a, b) => {
-    const priority = (project) => project.id === 8 ? 0 : project.id === 1 ? 1 : 2;
+    const priority = (project) => project.id === 8 ? 0 : project.id === 1 ? 1 : project.id === 9 ? 2 : 3;
     return priority(a) - priority(b);
 });
 
