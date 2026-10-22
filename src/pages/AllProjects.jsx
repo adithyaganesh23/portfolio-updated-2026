@@ -6,7 +6,7 @@ import { projects } from '../data/projects';
 import { ProjectVisual } from '../components/ui/ProjectVisual';
 
 const orderedProjects = [...projects].sort((a, b) => {
-    const priority = (project) => project.id === 8 ? 0 : project.id === 1 ? 1 : project.id === 9 ? 2 : 3;
+    const priority = (project) => project.id === 8 ? 0 : project.id === 1 ? 1 : project.id === 10 ? 2 : project.id === 9 ? 3 : 4;
     return priority(a) - priority(b);
 });
 
@@ -34,26 +34,36 @@ export function AllProjects() {
                     {orderedProjects.map((project) => (
                         <Link key={project.id} href={`/project/${project.id}`} className="block group cursor-pointer relative rounded-2xl z-10">
                             <div className="h-full w-full rounded-2xl overflow-hidden border border-gray-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2">
-                                <div className="relative aspect-[4/3]">
+                                <div className={`relative aspect-[4/3] ${project.imageFit === 'contain' ? 'bg-slate-100' : ''}`}>
                                     <div className="absolute inset-0">
                                         {project.image ? (
                                             <img
                                                 src={project.image}
                                                 alt={project.title}
-                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                className={`w-full h-full ${project.imageFit === 'contain' ? 'object-contain bg-slate-100 p-2' : 'object-cover transition-transform duration-700 group-hover:scale-105'}`}
                                             />
                                         ) : (
                                             <ProjectVisual project={project} className="h-full" />
                                         )}
-                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300" />
-                                        <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-90 transition-opacity duration-300" />
+                                        {project.imageFit !== 'contain' && <>
+                                            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300" />
+                                            <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-90 transition-opacity duration-300" />
+                                        </>}
                                     </div>
 
-                                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-10">
-                                        <span className="text-sm font-medium tracking-wider mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 uppercase">{project.category}</span>
-                                        <h3 className="text-3xl font-serif">{project.title}</h3>
-                                    </div>
+                                    {project.imageFit !== 'contain' && (
+                                        <div className="absolute bottom-0 left-0 right-0 p-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-10">
+                                            <span className="text-sm font-medium tracking-wider mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 uppercase">{project.category}</span>
+                                            <h3 className="text-3xl font-serif">{project.title}</h3>
+                                        </div>
+                                    )}
                                 </div>
+                                {project.imageFit === 'contain' && (
+                                    <div className="px-6 py-5 border-t border-slate-200 bg-slate-50 text-slate-900">
+                                        <span className="text-[10px] font-semibold tracking-wider uppercase text-slate-500">{project.category}</span>
+                                        <h3 className="mt-1 text-2xl font-serif">{project.title}</h3>
+                                    </div>
+                                )}
                             </div>
                         </Link>
                     ))}

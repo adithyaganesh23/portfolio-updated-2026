@@ -13,7 +13,7 @@ const processSteps = [
     { number: '04', title: 'Refine', detail: 'Validate the details, learn from feedback, and improve.', Icon: RefreshCw, steps: ['Review & testing', 'Iterate & polish'] },
 ];
 
-const featuredProjects = [8, 1, 9, 4, 6, 2].map((id) => projects.find((project) => project.id === id)).filter(Boolean);
+const featuredProjects = [8, 1, 10, 9, 4, 6].map((id) => projects.find((project) => project.id === id)).filter(Boolean);
 const dashboardFrameNames = [
     'overview', 'hero-about', 'about', 'about-expertise', 'expertise', 'expertise-process', 'process', 'process-work', 'work', 'work-contact', 'contact',
 ];
@@ -44,7 +44,7 @@ const dashboardFocus = [
 const skillGroups = [
     { key: 'ai', title: 'AI & Agent Workflows', subtitle: 'Prompt engineering · Vibe coding · AI prototyping · Agent workflows', Icon: BrainCircuit, projectIds: [1, 2, 3, 8] },
     { key: 'product', title: 'Digital Product Design', subtitle: 'UX strategy · Interaction design · Prototyping · Design systems', Icon: Sparkles, projectIds: [1, 2, 3, 4, 9] },
-    { key: 'data', title: 'Data & Visual Storytelling', subtitle: 'Information design · Dashboards · Infographics · Presentation design', Icon: ChartNoAxesCombined, projectIds: [1, 5, 6, 8] },
+    { key: 'data', title: 'Data & Visual Storytelling', subtitle: 'Information design · Dashboards · Infographics · Presentation design', Icon: ChartNoAxesCombined, projectIds: [1, 5, 6, 8, 10] },
     { key: 'brand', title: 'Brand & Graphic Design', subtitle: 'Visual identity · Editorial · Campaigns · Typography', Icon: Code2, projectIds: [5, 6, 7] },
 ];
 
@@ -108,6 +108,8 @@ export function ScrollPortfolio() {
     const frameARef = useRef(null);
     const frameColorRef = useRef(null);
     const heroVideoRef = useRef(null);
+    const heroSectionRef = useRef(null);
+    const heroCopyRef = useRef(null);
     const { reducedMotion } = useSettings();
     const [activeSkill, setActiveSkill] = useState(null);
     const [activeHobby, setActiveHobby] = useState(null);
@@ -120,6 +122,80 @@ export function ScrollPortfolio() {
         pageRef.current?.querySelector('#work')?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
     };
 
+    useEffect(() => {
+        const section = heroSectionRef.current;
+        const card = heroCopyRef.current;
+        if (!section || !card) return undefined;
+        card.style.left = '';
+        card.style.top = '';
+        card.style.right = '';
+        card.style.bottom = '';
+
+        let drag = null;
+        const clamp = (value, max) => Math.min(Math.max(0, value), Math.max(0, max));
+        const placeCard = (left, top) => {
+            card.style.right = 'auto';
+            card.style.bottom = 'auto';
+            card.style.left = `${clamp(left, section.clientWidth - card.offsetWidth)}px`;
+            card.style.top = `${clamp(top, section.clientHeight - card.offsetHeight)}px`;
+        };
+        const onPointerDown = (event) => {
+            if (event.button !== 0) return;
+            const target = event.target instanceof Element ? event.target : null;
+            if (target?.closest('a,button')) return;
+            const sectionRect = section.getBoundingClientRect();
+            const cardRect = card.getBoundingClientRect();
+            drag = {
+                pointerId: event.pointerId,
+                startX: event.clientX,
+                startY: event.clientY,
+                startLeft: cardRect.left - sectionRect.left,
+                startTop: cardRect.top - sectionRect.top,
+                moved: false,
+            };
+            card.classList.add('is-dragging');
+            card.setPointerCapture(event.pointerId);
+            event.preventDefault();
+        };
+        const onPointerMove = (event) => {
+            if (!drag || drag.pointerId !== event.pointerId) return;
+            const deltaX = event.clientX - drag.startX;
+            const deltaY = event.clientY - drag.startY;
+            if (!drag.moved && Math.hypot(deltaX, deltaY) < 3) return;
+            drag.moved = true;
+            placeCard(drag.startLeft + deltaX, drag.startTop + deltaY);
+        };
+        const onPointerEnd = (event) => {
+            if (!drag || drag.pointerId !== event.pointerId) return;
+            drag = null;
+            card.classList.remove('is-dragging');
+            if (card.hasPointerCapture(event.pointerId)) card.releasePointerCapture(event.pointerId);
+        };
+        const onKeyDown = (event) => {
+            const deltas = { ArrowLeft: [-24, 0], ArrowRight: [24, 0], ArrowUp: [0, -24], ArrowDown: [0, 24] };
+            const delta = deltas[event.key];
+            if (!delta) return;
+            event.preventDefault();
+            const sectionRect = section.getBoundingClientRect();
+            const cardRect = card.getBoundingClientRect();
+            const left = card.style.left ? Number.parseFloat(card.style.left) : cardRect.left - sectionRect.left;
+            const top = card.style.top ? Number.parseFloat(card.style.top) : cardRect.top - sectionRect.top;
+            placeCard(left + delta[0], top + delta[1]);
+        };
+
+        card.addEventListener('pointerdown', onPointerDown);
+        card.addEventListener('pointermove', onPointerMove);
+        card.addEventListener('pointerup', onPointerEnd);
+        card.addEventListener('pointercancel', onPointerEnd);
+        card.addEventListener('keydown', onKeyDown);
+        return () => {
+            card.removeEventListener('pointerdown', onPointerDown);
+            card.removeEventListener('pointermove', onPointerMove);
+            card.removeEventListener('pointerup', onPointerEnd);
+            card.removeEventListener('pointercancel', onPointerEnd);
+            card.removeEventListener('keydown', onKeyDown);
+        };
+    }, []);
     useEffect(() => {
         const frameA = frameARef.current;
         const frameColor = frameColorRef.current;
@@ -158,7 +234,8 @@ export function ScrollPortfolio() {
             raf = 0;
             const page = pageRef.current;
             if (!page) return;
-            if (cameraPosition === null || reducedMotion) cameraPosition = targetPosition;
+            if (cameraPosition === null) cameraPosition = 0;
+            if (reducedMotion) cameraPosition = targetPosition;
             else cameraPosition += (targetPosition - cameraPosition) * 0.12;
 
             const maxSegment = Math.max(0, dashboardFocus.length - 1);
@@ -186,7 +263,9 @@ export function ScrollPortfolio() {
             page.style.setProperty('--dashboard-spot-x', `${spotX.toFixed(1)}%`);
             page.style.setProperty('--dashboard-spot-y', `${spotY.toFixed(1)}%`);
             const videoProgress = targetPosition;
-            page.style.setProperty('--dashboard-hero-video-opacity', `${Math.min(1, Math.max(0, 1 - videoProgress / 0.32)).toFixed(3)}`);
+            const hasScrolledPastHero = videoProgress > 0.005;
+            page.style.setProperty('--dashboard-hero-video-opacity', hasScrolledPastHero ? '0' : '1');
+            page.style.setProperty('--dashboard-frame-opacity', hasScrolledPastHero ? '1' : '0');
             if (heroVideoRef.current) {
                 if (videoProgress >= 0.36) heroVideoRef.current.pause();
                 else if (!reducedMotion && heroVideoRef.current.paused) heroVideoRef.current.play().catch(() => undefined);
@@ -198,7 +277,9 @@ export function ScrollPortfolio() {
             const transform = `perspective(1600px) scale(${zoom.toFixed(3)}) rotateX(${turnX.toFixed(2)}deg) rotateY(${turnY.toFixed(2)}deg)`;
             const origin = `${focusX.toFixed(1)}% ${focusY.toFixed(1)}%`;
             [frameA, frameColor, heroVideoRef.current].filter(Boolean).forEach((layer) => {
-                layer.style.transform = transform;
+                layer.style.transform = layer === heroVideoRef.current
+                    ? `translate3d(0, 8px, 0) ${transform} scale(1.02)`
+                    : transform;
                 layer.style.transformOrigin = origin;
             });
 
@@ -245,14 +326,14 @@ export function ScrollPortfolio() {
                 <video className="dashboard-hero-video" ref={heroVideoRef} src="/videos/hero-dashboard.mp4" poster={dashboardFrames[0]} autoPlay={!reducedMotion} muted loop playsInline preload="metadata" tabIndex={-1} />
             </div>
             <main className="journey-content">
-                <section className="journey-section journey-hero" id="hero">
-                    <div className="journey-copy hero-copy">
+                <section className="journey-section journey-hero" id="hero" ref={heroSectionRef}>
+                    <div className="journey-copy hero-copy" ref={heroCopyRef} role="group" aria-label="Hero introduction. Drag to reposition; use arrow keys when focused." tabIndex={0}>
                         <SectionEyebrow index="00">DESIGNER · BUILDER · CURIOUS HUMAN</SectionEyebrow>
-                        <h1>Adithya<br /><em>Ganesh.</em></h1>
+                        <span className="hero-drag-hint" aria-hidden="true">DRAG TO MOVE</span>
+                        <h1>Adithya <em>Ganesh.</em></h1>
                         <p>Product designer shaping digital experiences, visual systems, and ideas into things people can use.</p>
                         <a className="journey-cta" href="#about">Scroll to explore <ArrowDown size={17} /></a>
                     </div>
-                    <div className="scroll-cue"><span className="scroll-cue-line" /> A world of work, ideas & everything in between</div>
                 </section>
 
                 <section className="journey-section journey-about" id="about">
@@ -322,7 +403,7 @@ export function ScrollPortfolio() {
                             {visibleProjects.map((project, index) => (
                                 <Link to={`/project/${project.id}`} className={`journey-project project-tone-${index % 4}`} key={project.id}>
                                     <div className="project-card-visual">
-                                        {project.image ? <img src={project.image} alt="" loading="lazy" /> : <ProjectVisual project={project} className="project-card-generated" />}
+                                        {project.image ? <img className={project.imageFit === 'contain' ? 'project-image-contained' : ''} src={project.image} alt="" loading="lazy" /> : <ProjectVisual project={project} className="project-card-generated" />}
                                     </div>
                                     <div className="project-card-meta">
                                         <span className="project-count">0{index + 1}</span>
@@ -337,7 +418,7 @@ export function ScrollPortfolio() {
                 </section>
 
                 <section className="journey-section journey-contact" id="contact">
-                    <div className="journey-copy contact-copy">
+                    <div className="journey-copy contact-copy content-card">
                         <SectionEyebrow index="05">THE NEXT CHAPTER</SectionEyebrow>
                         <h2>Let’s make something<br /><em>meaningful.</em></h2>
                         <p>Have a project, a good question, or an idea taking shape? I’d love to hear about it.</p>

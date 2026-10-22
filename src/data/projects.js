@@ -2,17 +2,48 @@ export const projects = [
     {
         id: 1,
         title: "AI Data Analyst Platform",
+        caseStudy: "ai-data-analyst",
         category: "Generative AI & Data Engineering Platform",
         image: "/images/project1/landing-v2.png",
         cols: "md:col-span-2",
         client: "Internal Product",
+        link: "https://xd.adobe.com/view/f7087fa3-ed6b-4ed3-915f-e3fd404b8cd4-a25b/",
+        linkLabel: "Open clickable prototype",
         tags: ["Generative AI & Data Engineering Platform"],
         year: "2024",
         role: "UX Design Lead",
-        description: "A technology product which accelerates the work of a data analyst by automating all the mundane tasks with AI.",
-        challenge: "Data analysts spend a significant amount of time on mundane tasks. The goal was to create a unified platform where users can create workstreams, get AI-suggested changes, and perform testing before deployment.",
-        solution: "I created the overall UX of the product by implementing a cohesive design language across all user flows. Worked closely with the product manager and stakeholders to gather requirements and fill user gaps. Developed interactive prototypes to present upcoming features to leadership.",
-        impact: "The solution saves about 70% of time on analyst tasks. It allows for a comprehensive understanding of user journeys before resource allocation.",
+        description: "A technology product that uses AI to reduce repetitive analyst and developer work, while guiding requirements from impact analysis through testing and deployment.",
+        challenge: "Small changes could take weeks as teams worked through manual, fragmented steps across several tools. Progress and ownership were difficult to track, and developers had to repeat tedious analysis and testing work.",
+        solution: "I led the product UX from discovery through delivery, partnering with product leads and stakeholders in interviews and workshops. I reorganized the experience around workstreams, requirements, impact analysis, planning, development, code review, validation, and deployment. AI suggestions could be reviewed, refined, or supplemented manually, keeping users in control of the work.",
+        impact: "The solution was estimated to save about 70% of time on these tasks. A clickable end-to-end prototype, including guidance, modals, and error states, helped stakeholders understand the proposed journeys before committing resources.",
+        caseStudySections: [
+            {
+                title: "Research the work behind the request",
+                body: "Interviews with users and team leads exposed multi-week turnaround for even small changes, repeated manual work, unclear ownership, and progress tracked across separate systems."
+            },
+            {
+                title: "Give each workstream a clear path",
+                body: "I shaped a consistent information architecture from requirement creation and impact analysis through planning, development, code review, validation testing, and deployment. Users could see the work and its status in one guided flow."
+            },
+            {
+                title: "Keep AI suggestions reviewable",
+                body: "The interaction model lets people receive an AI suggestion, review it, re-prompt when needed, or add information manually before moving on. This keeps the user in control while reducing repetitive effort."
+            },
+            {
+                title: "Build a system teams can apply",
+                body: "I defined product foundations for color, typography, spacing, layout, and iconography, with component states and guidance for consistent use. The clickable prototype covered a functional requirement end to end, including help and error states."
+            }
+        ],
+        designSystem: {
+            typeface: "Helvetica Neue",
+            primary: "#0879FF",
+            semantic: [
+                { label: "Informative", color: "#3491FF" },
+                { label: "Positive", color: "#268E6C" },
+                { label: "Notice", color: "#DA7B11" },
+                { label: "Negative", color: "#D7373F" },
+            ]
+        },
         gallery: [
             "/images/project1/analysis-v2.png",
             "/images/project1/testing-v2.png",
@@ -65,10 +96,10 @@ export const projects = [
         tags: ["Application"],
         year: "2023",
         role: "UX Designer",
-        description: "A mobile application for sales agents to track targets and product visibility in rural areas.",
-        challenge: "To provide solutions and product visibility to people from rural areas. The app needed to be used daily by sales agents to track everyday targets, requiring offline capabilities and high usability.",
-        solution: "Collaborated with a design team to create a mobile app that educates on cleanliness and sanitary products. Implemented gamification to improve user retention and engagement. Designed consolidated reporting features for management.",
-        impact: "Provided a comprehensive view for management with consolidated reports and improved agent engagement through gamification.",
+        description: "An offline sales app for field reps to manage daily targets and distributor activity, with consolidated performance reporting for managers.",
+        challenge: "Sales reps needed a practical daily tool for tracking targets and performance in the field, while managers needed a consolidated view to follow progress and act quickly.",
+        solution: "I defined journeys for sales progress and distributor management, then shaped the information architecture and low- to high-fidelity prototypes. The experience supports daily tracking for agents and brings sales-agent reporting together for management.",
+        impact: "Gave sales reps a clear way to track daily performance and managers a consolidated picture of progress across agents.",
         gallery: [
             "/images/project4/dashboard.png",
             "/images/project4/login.png",
@@ -104,10 +135,10 @@ export const projects = [
         tags: ["Editorial", "Sustainability", "Print"],
         year: "2024",
         role: "Graphic Designer",
-        description: "A comprehensive environment and sustainability report designed for NMDC featuring data visualization and impactful imagery.",
-        challenge: "To present complex environmental data and corporate sustainability initiatives in an engaging, readable format that aligns with global reporting standards.",
-        solution: "Created a magazine-style layout with high-quality imagery, clear infographics, and a clean typographic hierarchy. The design emphasizes transparency and corporate responsibility.",
-        impact: "Delivered a professional report that effectively communicates NMDC's commitment to sustainability to stakeholders and the public.",
+        description: "Creative direction and editorial design for NMDC’s environment and sustainability report, with a modular layout and illustrated data visualizations.",
+        challenge: "The report needed to make extensive sustainability information clear and engaging while meeting the organization’s brand and compliance requirements.",
+        solution: "I led the creative direction and delivery, managed a team of two designers, and developed a modular editorial layout with illustrated data visualizations. The system kept the report cohesive while supporting varied content.",
+        impact: "Delivered a readable, consistent report that communicates NMDC’s environmental and sustainability work through structured layouts and clear data visuals.",
         gallery: [
             "/images/project6/spread1.png",
             "/images/project6/spread2.png"
@@ -164,6 +195,24 @@ export const projects = [
         challenge: "Choosing meals, remembering what is already in the kitchen, working out what to buy, and keeping a household in sync are connected tasks that often happen in different places. This can leave plans that ignore the pantry, grocery lists that do not reflect the week, and recipes that are hard to reuse.",
         solution: "PrepBuddy brings the routine together: meals and servings shape the grocery list, pantry quantities help show what is already covered, and cooking status, notes, and photos build a useful history for next time. A bulk import flow lets people paste a meal plan from an AI tool, review the parsed meals, and add them to the week.",
         caseStudy: "prepbuddy",
+        gallery: []
+    },
+    {
+        id: 10,
+        title: "Finance MIS Analytics Dashboard",
+        category: "Power BI Dashboard Design",
+        image: "/images/project10/dashboard-collage.png",
+        imageFit: "contain",
+        caseStudy: "finance-mis",
+        cols: "md:col-span-1",
+        link: "https://xd.adobe.com/view/359b4ece-c911-4ab4-a8b4-e6aa227ca209-60c8/",
+        linkLabel: "Explore the prototype",
+        tags: ["Power BI", "Finance", "Dashboard Design", "Data Visualization"],
+        role: "Dashboard UX & Visualization Design",
+        description: "A redesign of finance MIS reports into intuitive Power BI dashboards, helping users move from detailed data to quicker business decisions.",
+        challenge: "The MIS reports needed to make large data tables easier to interpret while giving users a consistent experience across pages. The dashboards also had to follow company brand guidelines and account for the role of each person using them.",
+        solution: "I worked with the business team to improve the source tables for dashboard use and choose visualizations that made key measures easier to scan. I designed multiple dashboard journeys with consistent navigation and role-based views, while considering data quality and governance.",
+        impact: "The redesign created a cohesive Power BI experience that helps users navigate finance information, compare measures, and make business decisions more quickly.",
         gallery: []
     }
 ];

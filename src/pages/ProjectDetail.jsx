@@ -5,7 +5,46 @@ import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { projects } from '../data/projects';
 import { ProjectVisual } from '../components/ui/ProjectVisual';
 import { PrepBuddyCaseStudy } from './PrepBuddyCaseStudy';
+import { FinanceMISCaseStudy } from './FinanceMISCaseStudy';
+import { AIDataAnalystCaseStudy } from './AIDataAnalystCaseStudy';
 import './ProjectDetail.css';
+
+function ProjectDetailHero({ project, onViewImage }) {
+    const accents = { 2: '#ef9c83', 3: '#91a9ff', 4: '#e9b65d', 5: '#c0dc7a', 6: '#75d1b1', 7: '#f68eb2', 8: '#d5a2ff' };
+    const accent = accents[project.id] || '#8fc5ff';
+    const highlight = project.role || project.category;
+    const facts = [
+        ['ROLE', project.role],
+        ['YEAR', project.year],
+        ['FOCUS', project.category],
+        ['DISCIPLINES', project.tags?.slice(0, 2).join(' · ')],
+    ].filter(([, value]) => value);
+    return (
+        <section className="project-case-hero" style={{ '--detail-accent': accent }}>
+            <div className="project-hero-wrap">
+                <Link href="/work" className="project-hero-back"><ArrowLeft size={16} /> All projects</Link>
+                <div className="project-hero-grid">
+                    <div className="project-hero-copy">
+                        <span>{project.category}</span>
+                        <h1>{project.title}</h1>
+                        <p>{project.description}</p>
+                        <div className="project-hero-tags">{project.tags?.map(tag => <span key={tag}>{tag}</span>)}</div>
+                        {project.link && <a className="project-hero-cta" href={project.link} target="_blank" rel="noreferrer">{project.linkLabel || 'View project'} <ExternalLink size={15} /></a>}
+                    </div>
+                    <div className="project-hero-art" onClick={() => project.image && onViewImage(project.image)}>
+                        {project.image
+                            ? <img className={project.imageFit === 'contain' ? 'contain' : ''} src={project.image} alt={project.title + ' project overview'} />
+                            : <div className="project-hero-art-fallback"><ProjectVisual project={project} className="project-visual-detail" /></div>}
+                        <div className="project-hero-highlight">{highlight}</div>
+                    </div>
+                </div>
+                <div className="project-hero-meta" style={{ '--detail-meta-count': facts.length }}>
+                    {facts.map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}
+                </div>
+            </div>
+        </section>
+    );
+}
 
 export function ProjectDetail() {
     const [, params] = useRoute("/project/:id");
@@ -26,58 +65,22 @@ export function ProjectDetail() {
         );
     }
 
+    if (project.caseStudy === 'ai-data-analyst') {
+        return <AIDataAnalystCaseStudy project={project} />;
+    }
+
     if (project.caseStudy === 'prepbuddy') {
         return <PrepBuddyCaseStudy project={project} />;
     }
 
+    if (project.caseStudy === 'finance-mis') {
+        return <FinanceMISCaseStudy project={project} />;
+    }
+
     return (
-        <main className="pt-32 pb-20 fade-in-up">
-            <Section>
-                {/* Back Link */}
-                <Link href="/" className="inline-flex items-center text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white mb-8 transition-colors">
-                    <ArrowLeft size={20} className="mr-2" /> Back to Home
-                </Link>
-
-                {/* Header */}
-                <div className="mb-6">
-                    <h1 className="text-5xl md:text-7xl font-serif mb-6 dark:text-white">{project.title}</h1>
-                    {project.link && (
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium hover:opacity-80 transition-opacity"
-                        >
-                            View Project <ExternalLink size={18} />
-                        </a>
-                    )}
-                </div>
-
-                <div className="flex flex-wrap gap-8 text-sm md:text-base text-secondary dark:text-gray-400 border-t border-b border-gray-100 dark:border-zinc-800 py-6 mb-12">
-                    {[
-                        ['Tags', project.tags?.join(', ')],
-                        ['Year', project.year],
-                        ['Role', project.role],
-                        ['Services', project.category],
-                    ].filter(([, value]) => value).map(([label, value]) => (
-                        <div key={label}>
-                            <span className="block text-xs uppercase tracking-wider mb-1 opacity-60">{label}</span>
-                            <span className="font-medium text-primary dark:text-white">{value}</span>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Highlight Image */}
-                {project.image ? (
-                    <div
-                        className="rounded-3xl overflow-hidden aspect-video relative mb-16 shadow-xl cursor-zoom-in"
-                        onClick={() => setSelectedImage(project.image)}
-                    >
-                        <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                    </div>
-                ) : (
-                    <ProjectVisual project={project} className="project-visual-detail rounded-3xl mb-16 shadow-xl" />
-                )}
+        <main className="project-detail-page fade-in-up">
+            <ProjectDetailHero project={project} onViewImage={setSelectedImage} />
+            <Section className="project-detail-content pt-12 md:pt-16">
 
                 {project.workflow && (
                     <section className="project-workflow" aria-labelledby="workflow-title">
@@ -135,6 +138,13 @@ export function ProjectDetail() {
                             </div>
                         )}
 
+                        {project.caseStudySections?.map((section) => (
+                            <div key={section.title}>
+                                <h4 className="text-xl font-medium text-primary dark:text-white mb-3">{section.title}</h4>
+                                <p>{section.body}</p>
+                            </div>
+                        ))}
+
                         {/* Mobile Impact Section */}
                         {project.impact && (
                             <div className="md:hidden p-6 bg-green-50 dark:bg-green-900/10 rounded-2xl border border-green-100 dark:border-green-800 my-8">
@@ -144,6 +154,32 @@ export function ProjectDetail() {
                         )}
                     </div>
                 </div>}
+
+                {project.designSystem && (
+                    <section className="project-design-system" aria-labelledby="design-system-title">
+                        <div className="design-system-heading">
+                            <span>FOUNDATIONS</span>
+                            <h2 id="design-system-title">A clear visual language for complex work.</h2>
+                            <p>Core design decisions documented in the original product portfolio.</p>
+                        </div>
+                        <div className="design-token-grid">
+                            <div className="design-token">
+                                <span className="design-token-swatch" style={{ backgroundColor: project.designSystem.primary }} />
+                                <span><strong>Primary</strong><small>{project.designSystem.primary}</small></span>
+                            </div>
+                            {project.designSystem.semantic.map((token) => (
+                                <div className="design-token" key={token.label}>
+                                    <span className="design-token-swatch" style={{ backgroundColor: token.color }} />
+                                    <span><strong>{token.label}</strong><small>{token.color}</small></span>
+                                </div>
+                            ))}
+                            <div className="design-token design-token-type">
+                                <span className="design-token-type-sample">Ag</span>
+                                <span><strong>Typography</strong><small>{project.designSystem.typeface}</small></span>
+                            </div>
+                        </div>
+                    </section>
+                )}
 
                 {/* Gallery Section */}
                 {project.gallery && project.gallery.length > 0 && (
